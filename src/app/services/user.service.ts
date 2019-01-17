@@ -19,7 +19,10 @@ export class UserService {
     this.url = Config.url;
   }
 
-  singUp() {
+  register(user_to_register) {
+    const params = JSON.stringify(user_to_register);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this._http.post(`${this.url}register`, params, {headers: headers}).pipe(map( res => res.json() ));
   }
 
   login(user_to_login, getHash = null) {
