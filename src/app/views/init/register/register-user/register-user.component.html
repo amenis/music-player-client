@@ -1,0 +1,32 @@
+
+<div class="col-md-6 " id="registro">
+  <h1>Registro</h1>
+  <div *ngIf="alertRegister"> 
+    <div class="alert alert-info" role="alert">
+      {{alertRegister}}
+    </div>
+  </div>
+  <form #registerForm class="col-md-10" (ngSubmit)="onSubmitRegister()" >
+    <p>
+      <label>Nombre:</label>
+      <input type="text" class="form-control"  #name="ngModel" [(ngModel)]="user_register.name" name="nombre" require>
+      <span *ngIf="!name.valid && name.touched"> El nombre es obligatorio </span>
+    </p>
+    <p>
+      <label>Apellido:</label>
+      <input type="text" class="form-control" #surname="ngModel" [(ngModel)]="user_register.surname" name="apellido" require>
+    </p>
+    <p>
+      <label>Correo Electronico:</label>
+      <input type="text" class="form-control" #email="ngModel" [(ngModel)]="user_register.email" name="email" require>
+      <span *ngIf="!email.valid && email.touched"> El email es obligatorio </span>
+    </p>
+    <p>
+      <label >Contraseña:</label>
+      <input type="password" class="form-control" #password="ngModel" [(ngModel)]="user_register.password" name="password" required>
+      <span *ngIf="!password.valid && password.touched"> El password es obligatorio </span>
+    </p>
+    <input type="submit" value="registrar" class="btn btn-primary">
+    <a class="btn btn-default" routerLink="/">Login</a>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+#registro {
+    margin-top: 10%;
+    margin-left:25% ;
+    height: 550px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+#registro > form {
+    margin-left: 8%;
+}

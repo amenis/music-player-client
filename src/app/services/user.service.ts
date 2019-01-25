@@ -58,4 +58,20 @@ export class UserService {
     }
     return null;
   }
+
+  update_user(user_to_update) {
+    const params = JSON.stringify(user_to_update);
+    const headers = new Headers({'Content-Type': 'application/json', 'Authorization' : this.getToken() });
+
+    return this._http.put(`${this.url}updateUser/${user_to_update._id}`, params, {headers: headers}).pipe(map( res => res.json() ));
+
+  }
+
+  isAuth() {
+   if ( this.getIdentity() !== null ) {
+     return true;
+   } else {
+     return false;
+   }
+  }
 }

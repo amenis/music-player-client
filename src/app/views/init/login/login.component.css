@@ -1,0 +1,10 @@
+#login {
+    margin-top: 15%;
+    margin-left:33% ;
+    height: 300px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+#login > form {
+    margin-left: 17%;
+}

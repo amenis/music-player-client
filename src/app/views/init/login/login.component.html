@@ -1,0 +1,22 @@
+<div class="col-md-4" id="login">
+  <h1>Login</h1>
+  <div *ngIf="errorMessage"> 
+    <div class="alert alert-info" role="alert">
+      {{errorMessage}}
+    </div>
+  </div>
+  <form class="col-md-8 " #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+      <label>Correo Electronico:</label>
+      <input type="email" class="form-control" required #email="ngModel" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" > 
+    </p>
+    <span *ngIf="!email.valid && email.touched"> El correo es obligatorio </span>
+    <p>
+      <label >Contraseña:</label>
+      <input type="password" class="form-control" required  #password="ngModel" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
+    </p>
+    <span *ngIf="!password.valid && password.touched"> La contraseña es obligatorio </span>
+    <input type="submit" value="entrar" class="btn btn-primary">
+    <a class="btn btn-default" routerLink="/register" >Registrar</a>
+  </form>
+</div>
