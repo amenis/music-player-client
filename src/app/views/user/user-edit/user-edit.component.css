@@ -1,0 +1,10 @@
+#userEdit {
+    margin-top: 5%;
+    margin-left:25% ;
+    height: 550px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+#userEdit > form {
+    margin-left: 8%;
+}

@@ -26,15 +26,5 @@ export class AppComponent implements OnInit {
     this.token = this._userService.getToken();
   }
 
-  logout() {
-    // remove data of localstorage
-    localStorage.removeItem('identity');
-    localStorage.removeItem('token');
-    localStorage.clear();
-    this.identity = null;
-    this.token = null;
-  }
-
-
 }
 

@@ -9,6 +9,8 @@ import { UserService } from '../../../services/user.service';
 })
 export class HeaderComponent implements OnInit {
 
+  private userData: string;
+  private _id: string;
   constructor(
               private userService: UserService,
               private router: Router,
@@ -16,10 +18,19 @@ export class HeaderComponent implements OnInit {
             ) { }
 
   ngOnInit() {
+   this.userData = JSON.parse(localStorage.getItem('identity'));
   }
 
   isAuth() {
     return this.userService.isAuth();
+  }
+
+  logout() {
+    // remove data of localstorage
+    localStorage.removeItem('identity');
+    localStorage.removeItem('token');
+    localStorage.clear();
+    this.userData = '';
   }
 
 }

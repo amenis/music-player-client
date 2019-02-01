@@ -17,7 +17,7 @@ import { HeaderComponent } from './views/headers/header/header.component';
 const routes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'register', component: RegisterUserComponent },
-  { path: 'editUser/:id', component: UserEditComponent },
+  { path: 'editUser', component: UserEditComponent, canActivate: [GuardService] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [GuardService] }
 ];
 

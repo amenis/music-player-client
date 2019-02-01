@@ -10,11 +10,42 @@ import { User } from '../../../models/user';
 })
 export class UserEditComponent implements OnInit {
 
-  userEdit = User;
+  public userEdit: User;
+  public identity;
+  public token;
+  public errorMessage;
 
-  constructor( private UserService: UserService) { }
+  constructor( private userService: UserService) {
+    // this.userEdit = new User('', '' , '' , '' , '' , 'ROLE_USER' , '');
+    this.identity = this.userService.getIdentity();
+    this.token = this.userService.getToken();
+    this.userEdit = this.identity;
+  }
 
   ngOnInit() {
+    console.log( this.userEdit.image );
+  }
+
+  onSubmit() {
+    this.userService.update_user(this.userEdit).subscribe(
+      response => {
+        this.userEdit = response.user;
+        if ( !response.user ) {
+          this.errorMessage = 'el usuario no se ha actualizado';
+        } else {
+          this.userEdit = response.user;
+          localStorage.setItem( 'identity', JSON.stringify(this.userEdit) );
+        }
+      },
+       error => {
+        const errorMessage = <any>error;
+        if ( errorMessage != null ) {
+          const body = JSON.parse(error._body);
+          this.errorMessage = body.message;
+          console.log(error);
+        }
+      }
+    );
   }
 
 }
