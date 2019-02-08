@@ -26,11 +26,11 @@
         <span *ngIf="!password.valid && password.touched"> El password es obligatorio </span>
       </p>
       <div class="image_for_edit" *ngIf="userEdit.image && userEdit.image != 'null' ">
-        <img src="upload/users{{userEdit.image}}" alt="profile" />
+        <img src="{{url}}getUserImage/{{userEdit.image}}" width="40" height="40"/>
       </div>
       <p>
         <label >Foto de Perfil</label>
-        <input type="file" placeholder="Subir imagen...">
+        <input type="file" placeholder="Subir imagen..." (change)="fileChangeEvent($event)">
       </p>
       <input type="submit" value="Editar" class="btn btn-primary">
   </form>
