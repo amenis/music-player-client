@@ -56,7 +56,7 @@ export class UserService {
     } else {
       this.token = null;
     }
-    return null;
+    return this.token;
   }
 
   update_user(user_to_update) {
