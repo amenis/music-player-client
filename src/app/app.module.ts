@@ -13,12 +13,22 @@ import { DashboardComponent } from './views/dashboard/dashboard/dashboard.compon
 import { UserService } from './services/user.service';
 import { GuardService } from './services/guard.service';
 import { HeaderComponent } from './views/headers/header/header.component';
+import { SongsComponent } from './views/music/songs/songs.component';
+import { ArtistComponent } from './views/artist/artist/artist.component';
+import { AlbumsComponent } from './views/albums/albums/albums.component';
+import { ArtistAddComponent } from './views/artist/artistAdd/artist-add.component';
+import { EditArtistComponent } from './views/artist/edit-artist/edit-artist.component';
+import { ArtistService } from './services/artist.service';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'register', component: RegisterUserComponent },
   { path: 'editUser', component: UserEditComponent, canActivate: [GuardService] },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [GuardService] }
+  { path: 'dashboard', component: DashboardComponent, canActivate: [GuardService] },
+  { path: 'music', component: SongsComponent, canActivate: [GuardService] },
+  { path: 'artist', component: ArtistComponent, canActivate: [GuardService] },
+  { path: 'artistAdd', component: ArtistAddComponent, canActivate: [GuardService]  },
+  { path: 'albums', component: AlbumsComponent, canActivate: [GuardService] }
 ];
 
 @NgModule({
@@ -28,7 +38,12 @@ const routes: Routes = [
     LoginComponent,
     RegisterUserComponent,
     DashboardComponent,
-    HeaderComponent
+    HeaderComponent,
+    SongsComponent,
+    ArtistComponent,
+    AlbumsComponent,
+    ArtistAddComponent,
+    EditArtistComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +51,11 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [UserService, GuardService],
+  providers: [
+    UserService,
+    GuardService,
+    ArtistService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
