@@ -1,0 +1,17 @@
+<div id="ArtistEdit">
+  <h2>{{titulo}}</h2>
+  <form #formArtist="ngForm" class="col-md-10" (ngSubmit)="onSubmit()">
+    <p>
+      <label>Nombre</label>
+      <input type="text" #name="ngModel" name="name" [(ngModel)]="artist.name" required class="form-control">
+      <span *ngIf="!name.valid && name.touched">El campo nombre no puede estar vació</span>
+    </p>
+    <p>
+      <label>Descripcion</label>
+      <textarea name="description" #description="ngModel" [(ngModel)]="artist.description" class="form-control" cols="30" rows="10"></textarea>
+    </p>    
+    <button class="btn btn-primary" > Crear Artista </button>
+    <span *ngIf="!alertMessage" >{{alertMessage}}</span>
+  </form>
+
+</div>

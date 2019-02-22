@@ -1,0 +1,21 @@
+.listArtist {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 35px;
+    height: 710px;
+    background-color: cornsilk;
+    
+}
+
+.miniatureArtist {
+    margin-top: 80px;
+    margin-left: 20px;
+    padding-left:0px;
+    height: 150px;
+    width: 150px;
+    border: solid 1px rgb(112, 111, 111);
+    border-radius: 5px;
+    float: left;
+    
+}
