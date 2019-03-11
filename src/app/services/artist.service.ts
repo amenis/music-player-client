@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Config } from './config';
 
@@ -8,11 +8,12 @@ import { Config } from './config';
 })
 export class ArtistService {
 
-  token;
+  token: any;
   url: string;
 
   constructor(private http: Http) {
     this.url = Config.url;
+    this.token = this.getToken();
   }
 
   getToken() {
@@ -25,16 +26,38 @@ export class ArtistService {
     return this.token;
   }
 
-
+  // New Artist
   addArtist(artist_to_register) {
     const params = JSON.stringify(artist_to_register);
     const headers = new Headers({'Content-type': 'application/json', 'Authorization': this.getToken() });
     return this.http.post(`${this.url}artist`, params, {headers: headers}).pipe(map( res => res.json()));
   }
 
-  getArtistList() {
+  // Get All Artist Register On The DataBase
+  getArtistList(token, page) {
+    const headers = new Headers({'Content-Type': 'application/json', 'Authorization': token });
+    const options = new RequestOptions({headers: headers});
+    return this.http.get(`${this.url}showArtist/${page}`, options ).pipe(map( res => res.json() ));
+  }
+
+  // Get Artist Data
+  getArtist(token, idArtist) {
+    const headers = new Headers({'Content-Type': 'application/json', 'Authorization': token });
+    const options = new RequestOptions({headers: headers});
+    return  this.http.get(`${this.url}artist/${idArtist}`, options ).pipe( map( res => res.json() ) ) ;
+  }
+
+  // Get All the Albums Register per Artist
+  getArtistAlbums(token, idArtist) {
+    const headers = new Headers({'Content-Type': 'application/json', 'Authorization': token });
+    const options = new RequestOptions({headers: headers});
+    return this.http.get(`${this.url}getAlbums/${idArtist}`, options).pipe( map( res => res.json() ) );
+  }
+
+  artistEdit(idArtist, artist_to_edit) {
     const headers = new Headers({'Content-Type': 'application/json', 'Authorization': this.getToken() });
-    return this.http.get(`${this.url}showArtist`, { headers: headers }).pipe(map( res => res.json() ));
+    const params = JSON.stringify(artist_to_edit);
+    return this.http.put(`${this.url}artist/${idArtist}`, params , {headers: headers} ).pipe( map( res => res.json() ) );
   }
 
   makeFileRequest(artistid: string, params: Array<string>, files: Array<File>) {
@@ -55,7 +78,7 @@ export class ArtistService {
           reject(xhr.response);
         }
       };
-      xhr.open('POST', `${this.url}uploadImagenArtist/` , true);
+      xhr.open('POST', `${this.url}uploadImagenArtist/${artistid}` , true);
       xhr.setRequestHeader('Authorization', token);
       xhr.send(formData);
     } );
