@@ -19,6 +19,7 @@ import { AlbumsComponent } from './views/albums/albums/albums.component';
 import { ArtistAddComponent } from './views/artist/artistAdd/artist-add.component';
 import { EditArtistComponent } from './views/artist/edit-artist/edit-artist.component';
 import { ArtistService } from './services/artist.service';
+import { ShowArtistComponent } from './views/artist/show-artist/show-artist.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
@@ -26,9 +27,12 @@ const routes: Routes = [
   { path: 'editUser', component: UserEditComponent, canActivate: [GuardService] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [GuardService] },
   { path: 'music', component: SongsComponent, canActivate: [GuardService] },
-  { path: 'artist', component: ArtistComponent, canActivate: [GuardService] },
+  { path: 'artist/:page', component: ArtistComponent, canActivate: [GuardService] },
+  { path: 'showArtist/:id', component: ShowArtistComponent, canActivate: [GuardService] },
   { path: 'artistAdd', component: ArtistAddComponent, canActivate: [GuardService]  },
-  { path: 'albums', component: AlbumsComponent, canActivate: [GuardService] }
+  { path: 'editArtist/:id', component: EditArtistComponent, canActivate: [GuardService] },
+  { path: 'albums', component: AlbumsComponent, canActivate: [GuardService] },
+  { path: '**', component: DashboardComponent, canActivate: [GuardService] }
 ];
 
 @NgModule({
@@ -43,7 +47,8 @@ const routes: Routes = [
     ArtistComponent,
     AlbumsComponent,
     ArtistAddComponent,
-    EditArtistComponent
+    EditArtistComponent,
+    ShowArtistComponent
   ],
   imports: [
     BrowserModule,
