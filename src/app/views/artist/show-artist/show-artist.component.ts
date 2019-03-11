@@ -45,7 +45,7 @@ export class ShowArtistComponent implements OnInit {
       albumsList =>  this.albums = albumsList.albums
     );
   }
-
+  
   ngOnInit() {
     this.getAlbumsList();
   }
