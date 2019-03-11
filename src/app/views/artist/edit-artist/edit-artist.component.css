@@ -1,0 +1,12 @@
+#ArtistEdit {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 35px;
+    height: 720px;
+    background-color: rgb(255, 255, 255);
+    overflow: auto;
+}
+#ArtistEdit > form {
+    margin-left: 5%;
+}
