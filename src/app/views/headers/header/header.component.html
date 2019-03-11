@@ -1,4 +1,4 @@
-<nav class="mb-1 navbar navbar-expand-lg navbar-light" style="background-color: azure" *ngIf="isAuth()" >
+<nav class="mb-1 navbar navbar-expand-lg navbar-light" style="background-color: rgb(255, 255, 255)" *ngIf="isAuth()" >
     <a class="navbar-brand" href="#">MUSIFY</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
       aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,11 +13,11 @@
             <span class="sr-only">Musica</span>
           </a>
         </li>
-        <li class="nav-item" routerLinkActivate="active">
-          <a class="nav-link"  [routerLink]="['/artist']" >
+        <li class="nav-item" >
+          <a class="nav-link" routerLink="/artist/1" >
             <i class="fab fa-instagram"></i> Artistas </a>
         </li>
-        <li class="nav-item" routerLinkActivate="active">
+        <li class="nav-item" >
           <a class="nav-link" href="#">
             <i class="fab fa-instagram"></i> Albums </a>
         </li>
