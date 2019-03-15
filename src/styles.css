@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-    background-size: cover;
-    background-image: url('./assets/imagens/1539690389456.jpg');
+#player {
+    position: fixed;
+    top:85%;
+    width: 90%;
+    height:80px;
+    padding-left: 80px;
+}
+nav > ul {
+    color: white;
 }
