@@ -55,7 +55,7 @@ export class ArtistComponent implements OnInit {
             }
           }
 
-          this._artistService.getArtistList( this.token, page  ).subscribe(
+          this._artistService.getArtistList(  page  ).subscribe(
             artistList => {
               if ( !artistList.artist ) {
                 this._router.navigate(['/']);
