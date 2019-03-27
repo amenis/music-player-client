@@ -1,10 +1,17 @@
 <div class="listArtist">
   <h1>{{titulo}}</h1>
-  <a *ngIf="identity.role == 'ROLE_ADMIN' "  class="btn btn-primary" [routerLink]="['/artistAdd']"  > Añadir Artista </a>  
+  <a *ngIf="identity.role === 'ROLE_ADMIN' "  class="add-artist btn btn-primary" [routerLink]="['/artistAdd']"  ><i class="glyphicon glyphicon-plus"></i> Añadir Artista </a>  
 
-  <div class="miniatureArtist" *ngFor="let art of artist">
-    <img src="{{url}}getArtistImage/{{art.image}}" alt="Imagen no disponible" width="150" height="120">
-    <p>{{art.name}}</p>
+  
+  <ul class="pagination float-right">
+      <li class="page-item"><a class="page-link" [routerLink]="['/artist', prev_page]" >Previous</a></li>
+      <li class="page-item"></li>
+      <li class="page-item"></li>
+      <li class="page-item"><a class="page-link" [routerLink]="['/artist', next_page]">Next</a></li>
+    </ul>
+  
+  <div class="miniatureArtist" *ngFor="let art of artist" routerLink="/showArtist/{{art._id}}" >
+    <img src="{{url}}getArtistImage/{{art.image}}" alt="Imagen no disponible" >
+    <p>{{art.name}} <a class="btn btn-default">...</a></p>
   </div>
-
 </div>
