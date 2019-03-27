@@ -26,10 +26,10 @@ export class SongsService {
   }
 
   saveSong(song_to_save) {
-    const parameters = JSON.stringify(song_to_save);
-    console.log(song_to_save);
+    const params = JSON.stringify(song_to_save);
+    console.log(params);
     const headers = new Headers({'Content-type': 'application/json', 'Authorization': this.getToken() });
-    return this.http.post(`${this.url}saveSong`, parameters, {headers: headers}).pipe(map( res => res.json() ));
+    return this.http.post(`${this.url}saveSong`, params, {headers: headers}).pipe(map( res => res.json()));
   }
 
   upadateSong() {
