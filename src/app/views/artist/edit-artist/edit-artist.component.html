@@ -1,5 +1,5 @@
 <div id="ArtistEdit">
-  <h2>Editar Artitsa</h2>
+  <h2>Editar Artista</h2>
   <form #formArtist class="col-md-10" (ngSubmit)="onSubmit()">
     <p>
       <label>Nombre</label>
@@ -8,7 +8,7 @@
     </p>
     <p>
       <label>Descripcion</label>
-      <textarea name="description" #description="ngModel" [(ngModel)]="artist.description" class="form-control" cols="30" rows="10"></textarea>
+      <textarea name="description" #description="ngModel" [(ngModel)]="artist.description" class="form-control" cols="30" rows="2"></textarea>
     </p>
     <div *ngIf="artist.image && artist.image != 'null' ">
         <img src="{{url}}getArtistImage/{{artist.image}}" >
