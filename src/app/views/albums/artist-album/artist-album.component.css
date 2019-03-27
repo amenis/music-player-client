@@ -1,0 +1,22 @@
+.albumSong {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 35px;
+    height: 620px;
+
+    overflow: hidden;
+}
+
+#listOfSong { 
+    padding-top: 15px; 
+    float: inherit;
+    border-bottom: 2px outset black;
+    height: 190px;
+    width: 98%;    
+}
+
+.songs {
+    padding-top: 20px; 
+    cursor: pointer;
+}

@@ -1,0 +1,42 @@
+<div class="albumSong">
+  
+  <div id="listOfSong">
+    <div class="row">
+        <div class="col-sm-2">
+          <img src="{{url}}getAlbumImage/{{album.image}}" width="140" height="140"  >
+        </div>
+        <div class="col-sm-8">
+            <h3>{{album.title}}</h3>
+            <a class="btn btn-primary" routerLink="/editAlbum/{{id}}"><i class="far fa-edit"></i> Editar</a>
+            <a class="btn btn-danger" style="color:white; padding-left:10px; " (click)="delAlbum()" ><i class="far fa-trash-alt"></i> Eliminar</a>
+        </div>
+        <div class="col-sm-2 " >
+            <a class="btn btn-primary " style="color:white;"  (click)="open()" ><i class="fas fa-file-upload"></i> Subir Cancion</a>
+        </div>
+    </div>   
+  </div>
+
+  <div class="songs">
+    <span *ngIf="!message">{{message}}</span>
+    <div class="row" *ngFor="let songs of song"  >
+      
+      <div class="col-sm-2" >
+          <i class="far fa-play-circle" (click)="playSong(songs.file)"> Play</i>          
+      </div>
+      <div class="col-sm-2" >
+        {{songs.name}}
+      </div>     
+      <div class="col-sm-2" >
+        {{songs.duration}}
+      </div>
+      <div class="col-sm-4">
+        
+      </div>
+      <div class="col-sm-2">
+        <a href="#" style="padding-right:10px;"><i class="btn btn-primary far fa-edit"> </i></a>
+        <a href="#" (click)="deleteSong(song._id);"><i class="btn btn-danger far fa-trash-alt"> </i></a>
+      </div>
+    </div>
+  </div>
+  
+</div>
