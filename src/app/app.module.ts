@@ -24,6 +24,8 @@ import { ArtistService } from './services/artist.service';
 import { ShowArtistComponent } from './views/artist/show-artist/show-artist.component';
 import { ArtistAlbumComponent, NgbdModalConfirmComponent } from './views/albums/artist-album/artist-album.component';
 import { PlayerComponent } from './views/player/player.component';
+import { EditAlbumComponent } from './views/albums/edit-album/edit-album.component';
+import { NewAlbumComponent } from './views/albums/new-album/new-album.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
@@ -37,6 +39,8 @@ const routes: Routes = [
   { path: 'editArtist/:id', component: EditArtistComponent, canActivate: [GuardService] },
   { path: 'albums', component: AlbumsComponent, canActivate: [GuardService] },
   { path: 'getAlbumSong/:id', component: ArtistAlbumComponent, canActivate: [GuardService] },
+  { path: 'newAlbum/:id', component: NewAlbumComponent, canActivate: [GuardService] },
+  { path: 'editAlbum/:id', component: EditAlbumComponent, canActivate: [GuardService]  },
   { path: '**', component: DashboardComponent, canActivate: [GuardService] }
 ];
 
@@ -56,7 +60,9 @@ const routes: Routes = [
     ShowArtistComponent,
     ArtistAlbumComponent,
     PlayerComponent,
-    NgbdModalConfirmComponent
+    NgbdModalConfirmComponent,
+    EditAlbumComponent,
+    NewAlbumComponent
   ],
   imports: [
     BrowserModule,
