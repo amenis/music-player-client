@@ -1,0 +1,19 @@
+#albumEdit {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 35px;
+    height: 720px;
+    background-color: rgb(255, 255, 255);
+    overflow: auto;
+}
+#albumEdit > form {
+    margin-left: 5%;
+}
+#mensaje {
+    background-color: rgb(243, 180, 180);
+    border-radius: 5px;
+    height: 150px;
+    width: 500px;
+    margin-left: 15px;
+}
