@@ -34,8 +34,8 @@ export class ArtistService {
   }
 
   // Get All Artist Register On The DataBase
-  getArtistList(token, page) {
-    const headers = new Headers({'Content-Type': 'application/json', 'Authorization': token });
+  getArtistList(page) {
+    const headers = new Headers({'Content-Type': 'application/json', 'Authorization': this.getToken() });
     const options = new RequestOptions({headers: headers});
     return this.http.get(`${this.url}showArtist/${page}`, options ).pipe(map( res => res.json() ));
   }
@@ -58,6 +58,11 @@ export class ArtistService {
     const headers = new Headers({'Content-Type': 'application/json', 'Authorization': this.getToken() });
     const params = JSON.stringify(artist_to_edit);
     return this.http.put(`${this.url}artist/${idArtist}`, params , {headers: headers} ).pipe( map( res => res.json() ) );
+  }
+
+  delArtist(idArtist) {
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.getToken() });
+    return this.http.delete(`${this.url}artist/${idArtist}`, { headers: headers} ).pipe( map( res => res.json() )  );
   }
 
   makeFileRequest(artistid: string, params: Array<string>, files: Array<File>) {
