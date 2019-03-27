@@ -5,11 +5,14 @@
         <div class="col-sm-2">
             <img src="{{url}}getArtistImage/{{artist.image}}" width="150" height="150" style="border-radius: 10px;">
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-8">
             <h3>{{artist.name}}</h3>
             <h5>{{artist.description}}</h5>
-            <a class="btn btn-default" routerLink="/editArtist/{{id}}"><i class="glyphicon glyphicon-pencil"></i>Editar Artist</a>
-            <a class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i>Eliminar</a>
+            <button class="btn btn-primary" routerLink="/editArtist/{{id}}"><i class="glyphicon glyphicon-pencil"></i>Editar Artist </button>
+            <button class="btn btn-danger" (click)="delArtist()"><i class="glyphicon glyphicon-remove-circle" ></i>Eliminar</button>
+        </div>
+        <div class="col-sm-2 " >
+          <a class="btn btn-primary " style="color:white;"  routerLink="/newAlbum/{{artist._id}}"  ><i class="fas fa-file-upload"></i> Agregar Album</a>
         </div>
     </div>
    
@@ -19,7 +22,7 @@
     <span *ngIf="!messageAlbum">{{messageAlbum}}</span>
     <div class="row" >
       <div class="col-sm-3" *ngFor="let album of albums">
-        <img src="{{url}}/getAlbumImage/{{album.image}}" width="140" height="140">
+        <img src="{{url}}/getAlbumImage/{{album.image}}" width="140" height="140"  routerLink="/getAlbumSong/{{album._id}} "  >
         <p>{{album.title}}</p>
       </div>     
     </div>
