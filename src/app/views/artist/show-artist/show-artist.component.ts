@@ -45,7 +45,15 @@ export class ShowArtistComponent implements OnInit {
       albumsList =>  this.albums = albumsList.albums
     );
   }
-  
+
+  delArtist() {
+    this._artistService.delArtist(this.id).subscribe(
+      reponse => {
+        this.router.navigate(['./artist/1']);
+      }
+    );
+  }
+
   ngOnInit() {
     this.getAlbumsList();
   }
