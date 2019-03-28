@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Config } from '../services/config';
 
@@ -13,6 +13,7 @@ export class SongsService {
 
   constructor(private http: Http) {
     this.url = Config.url;
+    this.getToken();
   }
 
   getToken() {
@@ -28,12 +29,17 @@ export class SongsService {
   saveSong(song_to_save) {
     const params = JSON.stringify(song_to_save);
     console.log(params);
-    const headers = new Headers({'Content-type': 'application/json', 'Authorization': this.getToken() });
-    return this.http.post(`${this.url}saveSong`, params, {headers: headers}).pipe(map( res => res.json()));
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
+    return this.http.post(this.url + 'saveSong', params, {headers: headers}).pipe( map(res => res.json()) );
   }
 
   upadateSong() {
 
+  }
+
+  getAllSongs() {
+    const headers = new Headers({'Content-type': 'application/json', 'Authorization': this.getToken() });
+    return this.http.get(`${this.url}getAllSong`, {headers: headers}).pipe(map( res => res.json()));
   }
 
   deleteSong(idSong) {
