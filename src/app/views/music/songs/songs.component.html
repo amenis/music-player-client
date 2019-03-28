@@ -1,3 +1,10 @@
-<p>
-  songs works!
-</p>
+<h2>Music</h2>
+<div class="musicList">
+  <ul>
+    <li *ngFor="let song of songs">  
+      <i class="far fa-play-circle" (click)="play(song.file)" > 
+        {{song.name}}  {{song.duration}} 
+      </i> 
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,14 @@
+.musicList {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 35px;
+    height: 620px;
+    background-color: rgb(255, 255, 255);
+    overflow-y: auto;
+}
+
+ul > li {
+    padding-top: 25px;
+    list-style: none;
+}
