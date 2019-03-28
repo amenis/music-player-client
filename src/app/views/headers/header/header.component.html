@@ -8,16 +8,18 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item" routerLinkActive="active"   
         [routerLinkActiveOptions]="{exact:true}">
-          <a class="nav-link" href="#"   >
+          <a class="nav-link" routerLink="/music"  >
             <i class="fa fa-music"> Musica</i>  
           </a>
         </li>
-        <li class="nav-item" >
+        <li class="nav-item" routerLinkActive="active"   
+        [routerLinkActiveOptions]="{exact:true}" >
           <a class="nav-link" routerLink="/artist/1" >
             <i class="fa fa-address-book"></i> Artistas </a>
         </li>
-        <li class="nav-item" >
-          <a class="nav-link" href="#">
+        <li class="nav-item" routerLinkActive="active"   
+        [routerLinkActiveOptions]="{exact:true}" >
+          <a class="nav-link" routerLink="/albums">
             <i class="fa fa-image"></i> Albums </a>
         </li>
         <li class="nav-item dropdown">
