@@ -1,0 +1,31 @@
+.listAlbums {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 35px;
+    height: 720px;
+    background-color: rgb(255, 255, 255);
+    overflow: auto;
+}
+
+.miniatureAlbums {
+    margin-top: 80px;
+    margin-left: 40px;
+    padding-left:0px;
+    height: 250px;
+    width: 200px;
+    /*border: solid 1px rgb(112, 111, 111);
+    border-radius: 5px;*/
+    float: left;
+    font-family: cursive;
+    color:dimgray; 
+    text-align: center;
+    
+}
+
+.miniatureAlbums > img {
+    border-radius: 10px;
+    -webkit-border-radius:10px;
+    width: 180px;
+    height: 180px;
+}

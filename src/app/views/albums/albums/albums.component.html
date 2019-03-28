@@ -1,3 +1,9 @@
-<p>
-  albums works!
-</p>
+<h1>Albums</h1>
+<div class="listAlbums">
+
+  <div class="miniatureAlbums" *ngFor="let album of albums" routerLink="/getAlbumSong/{{album._id}}" >
+    <img src="{{url}}getAlbumImage/{{album.image}}" alt="Imagen no disponible" >
+    <p>{{album.title}} <a class="btn btn-default">...</a></p>
+  </div>
+
+</div>
