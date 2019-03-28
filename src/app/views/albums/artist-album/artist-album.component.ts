@@ -37,14 +37,11 @@ import { SongsService } from 'src/app/services/songs.service';
           La duración es obligatoria
         </span>
       </div>
-      <div class="form-group">
-        <input type="hidden" name="album" class="form-control" #album="ngModel" [(ngModel)]="song.album" readonly>
+      <div class="form-group" style="display:none">
+        <input type="text" name="album" class="form-control" #album="ngModel" [(ngModel)]="song.album">
       </div>
       <div class="form-group">
         <input type="file" (change)="fileToUpload($event)" #file required>
-        <span *ngIf="!album.valid && album.touched">
-          El archivo es obligatorio
-        </span>
       </div>
     </form>
   </div>
@@ -145,7 +142,7 @@ export class ArtistAlbumComponent implements OnInit {
     this.albumService.getAlbums(this.id).subscribe(
       albumResponse => {
         this.album = albumResponse.album;
-        localStorage.setItem('album', this.id);
+        // localStorage.setItem('album', this.id);
       }
     );
   }
@@ -168,12 +165,16 @@ export class ArtistAlbumComponent implements OnInit {
   }
 
   open() {
+    localStorage.setItem('album', this.id);
     this._modalService.open(  NgbdModalConfirmComponent );
   }
 
   deleteSong(idSong) {
+
     this.songService.deleteSong(idSong).subscribe(
-      response => { console.log(response); }
+      response => {
+        this.router.navigate(['/getAlbumSong', this.id]);
+       }
     );
   }
 
