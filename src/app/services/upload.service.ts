@@ -39,7 +39,7 @@ export class UploadService {
       };
 
       xhr.open('POST', url, true);
-      xhr.setRequestHeader('Authorization', this.token);
+      xhr.setRequestHeader('Authorization', this.getToken());
       xhr.send(formData);
     });
 
