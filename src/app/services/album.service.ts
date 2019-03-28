@@ -48,6 +48,12 @@ export class AlbumService {
     return this.http.get(`${this.url}getAlbum/${idAlbum}`, options).pipe( map( res => res.json() ) );
   }
 
+  getAll() {
+    const headers = new Headers({'Content-Type': 'application/json', 'Authorization': this.getToken() });
+    const options = new RequestOptions({headers: headers});
+    return this.http.get(`${this.url}getAlbums/`, options).pipe( map( res => res.json() ) );
+  }
+
   albulmDetails(idAlbum) {
     const headers = new Headers({'Content-type': 'application/json', 'Authorization': this.getToken() });
     return this.http.get(`${this.url}getAllSong/${idAlbum}`, {headers: headers}).pipe(map( res => res.json()));
